@@ -1,0 +1,41 @@
+package com.example.fragment
+
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import com.example.fragment.databinding.FragmentBlankBinding
+import com.example.fragment.databinding.FragmentBlankFragment6Binding
+
+/**
+ * A simple [Fragment] subclass.
+ */
+class BlankFragment6 : Fragment(),View.OnClickListener {
+
+    lateinit var binding: FragmentBlankFragment6Binding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_blank_fragment6,container,false)
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        binding.click=this
+    }
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.btnTwo-> v.findNavController().navigate(R.id.action_blankFragment6_to_blankFragment2)
+            R.id.btnSeven-> v.findNavController().navigate(R.id.action_blankFragment6_to_blankFragment7)
+        }
+    }
+}
+
